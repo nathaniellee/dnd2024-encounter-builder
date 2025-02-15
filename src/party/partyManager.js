@@ -12,6 +12,7 @@ const useStyles = makeStyles({
 });
 
 export const PartyManager = ({
+  onRemoveCharacter = noop,
   onSelectCharacterLevel = noop,
   party,
 }) => {
@@ -27,6 +28,7 @@ export const PartyManager = ({
             id={id}
             key={id}
             level={level}
+            onRemove={onRemoveCharacter}
             onSelectLevel={onSelectCharacterLevel}
           />
         ))}
@@ -36,6 +38,7 @@ export const PartyManager = ({
 };
 
 PartyManager.propTypes = {
+  onRemoveCharacter: PropTypes.func,
   onSelectCharacterLevel: PropTypes.func,
   party: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,

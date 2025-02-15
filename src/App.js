@@ -5,6 +5,16 @@ import './App.css';
 
 function App() {
   const [party, setParty] = useState(createParty());
+
+  const onRemoveCharacter = useCallback((id) => {
+    // If this removes the last character in the party, then generate a new default party.
+    if (party.length === 1) {
+      setParty(createParty());
+    } else {
+      setParty(party.filter(character => id !== character.id));
+    }
+  }, [party]);
+
   const onSelectCharacterLevel = useCallback(({ id, selectedLevel }) => {
     setParty(party.map((character) => {
       if (id === character.id) {
@@ -24,6 +34,7 @@ function App() {
       </header>
       <div className="App-main">
         <PartyManager
+          onRemoveCharacter={onRemoveCharacter}
           onSelectCharacterLevel={onSelectCharacterLevel}
           party={party}
         />
