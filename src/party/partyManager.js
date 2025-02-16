@@ -10,14 +10,22 @@ import { CharacterCard } from './characterCard';
 import { PartySummary } from './summary';
 
 const useStyles = makeStyles({
-  container: {
+  characters: {
+    columnGap: '12px',
     display: 'flex',
+    flexWrap: 'wrap',
+    rowGap: '12px',
   },
   header: {
     alignItems: 'center',
     display: 'flex',
-    flexWrap: 'wrap',
     justifyContent: 'space-between',
+    marginBottom: '6px',
+  },
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '688px',
   },
 });
 
@@ -27,17 +35,17 @@ export const PartyManager = ({
   onSelectCharacterLevel = noop,
   party,
 }) => {
-  const title = 'Party Manager';
+  const title = 'Manage Party';
   const styles = useStyles();
 
   return (
-    <div className="PartyManager">
+    <div className={styles.root}>
       <h1>{title}</h1>
       <div className={styles.header}>
         <PartySummary party={party} />
         <AddCharacterButton onClick={onAddCharacter} />
       </div>
-      <div className={styles.container}>
+      <div className={styles.characters}>
         {party.map(({ id, level }) => (
           <CharacterCard
             id={id}
