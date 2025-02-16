@@ -1,10 +1,20 @@
 import { useCallback, useState } from 'react';
 import { PartyManager } from './party/partyManager';
-import { createParty } from './utils';
+import {
+  createPlayerCharacter,
+  createParty,
+} from './utils';
 import './App.css';
 
 function App() {
   const [party, setParty] = useState(createParty());
+
+  const onAddCharacter = useCallback(() => {
+    setParty([
+      ...party,
+      createPlayerCharacter(),
+    ]);
+  }, [party]);
 
   const onRemoveCharacter = useCallback((id) => {
     // If this removes the last character in the party, then generate a new default party.
@@ -34,6 +44,7 @@ function App() {
       </header>
       <div className="App-main">
         <PartyManager
+          onAddCharacter={onAddCharacter}
           onRemoveCharacter={onRemoveCharacter}
           onSelectCharacterLevel={onSelectCharacterLevel}
           party={party}
