@@ -1,12 +1,32 @@
 import { useCallback, useState } from 'react';
+import { makeStyles } from '@fluentui/react-components';
 import { PartyManager } from './party/partyManager';
 import {
   createPlayerCharacter,
   createParty,
 } from './utils';
-import './App.css';
+
+const useStyles = makeStyles({
+  header: {
+    alignItems: 'center',
+    backgroundColor: '#282c34',
+    color: 'white',
+    display: 'flex',
+    fontSize: '24px',
+    height: '96px',
+    justifyContent: 'center',
+  },
+  main: {
+    alignItems: 'center',
+    backgroundColor: 'white',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+});
 
 function App() {
+  const styles = useStyles();
+
   const [party, setParty] = useState(createParty());
 
   const onAddCharacter = useCallback(() => {
@@ -39,10 +59,10 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className={styles.header}>
         Dungeons & Dragons 2024 Encounter Builder
       </header>
-      <div className="App-main">
+      <div className={styles.main}>
         <PartyManager
           onAddCharacter={onAddCharacter}
           onRemoveCharacter={onRemoveCharacter}
