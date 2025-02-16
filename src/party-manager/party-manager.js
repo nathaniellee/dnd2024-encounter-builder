@@ -5,8 +5,8 @@ import {
 import {
   noop,
 } from '../utils';
-import { AddCharacterButton } from './addCharacterButton';
-import { CharacterCard } from './characterCard';
+import { AddCharacterButton } from './add-character-button';
+import { CharacterCard } from './character-card';
 import { Summary } from './summary';
 
 const useStyles = makeStyles({

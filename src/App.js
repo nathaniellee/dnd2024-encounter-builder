@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { makeStyles } from '@fluentui/react-components';
-import { PartyManager } from './party/partyManager';
+import { PartyManager } from './party-manager';
 import {
   createPlayerCharacter,
   createParty,
