@@ -7,7 +7,7 @@ import {
 } from '../utils';
 import { AddCharacterButton } from './addCharacterButton';
 import { CharacterCard } from './characterCard';
-import { PartySummary } from './summary';
+import { Summary } from './summary';
 
 const useStyles = makeStyles({
   characters: {
@@ -42,7 +42,7 @@ export const PartyManager = ({
     <div className={styles.root}>
       <h1>{title}</h1>
       <div className={styles.header}>
-        <PartySummary party={party} />
+        <Summary party={party} />
         <AddCharacterButton onClick={onAddCharacter} />
       </div>
       <div className={styles.characters}>

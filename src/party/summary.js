@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const PartySummary = ({ party }) => {
+export const Summary = ({ party }) => {
   const styles = useStyles();
   const partySize = `Party Size: ${party.length}`;
   const averagePartyLevel = `Average Party Level: ${getAveragePartyLevel(party)}`;
@@ -27,7 +27,7 @@ export const PartySummary = ({ party }) => {
   );
 };
 
-PartySummary.propTypes = {
+Summary.propTypes = {
   party: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     level: PropTypes.number.isRequired,
