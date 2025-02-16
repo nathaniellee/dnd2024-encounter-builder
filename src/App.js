@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
 import { makeStyles } from '@fluentui/react-components';
+import { EncounterSummary } from './encounter-summary/encounter-summary';
 import { PartyManager } from './party-manager';
 import {
   createPlayerCharacter,
@@ -68,6 +69,7 @@ function App() {
           onSelectCharacterLevel={onSelectCharacterLevel}
           party={party}
         />
+        <EncounterSummary party={party} />
       </div>
     </div>
   );
