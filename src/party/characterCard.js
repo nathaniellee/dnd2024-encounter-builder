@@ -38,7 +38,7 @@ export const CharacterCard = ({
         value={level}
       >
         {CHARACTER_LEVELS.map(selectableLevel => (
-          <option>{selectableLevel}</option>
+          <option key={selectableLevel}>{selectableLevel}</option>
         ))}
       </Select>
       <CardFooter>
