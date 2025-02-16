@@ -35,12 +35,10 @@ export const PartyManager = ({
   onSelectCharacterLevel = noop,
   party,
 }) => {
-  const title = 'Manage Party';
   const styles = useStyles();
-
   return (
     <div className={styles.root}>
-      <h1>{title}</h1>
+      <h1>Manage Party</h1>
       <div className={styles.header}>
         <Summary party={party} />
         <AddCharacterButton onClick={onAddCharacter} />
