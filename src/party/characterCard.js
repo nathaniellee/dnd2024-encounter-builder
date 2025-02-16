@@ -4,8 +4,7 @@ import {
   Button,
   Card,
   CardFooter,
-  Dropdown,
-  Option,
+  Select,
 } from '@fluentui/react-components';
 import { DismissFilled } from '@fluentui/react-icons';
 import { CHARACTER_LEVELS } from '../constants';
@@ -23,32 +22,25 @@ export const CharacterCard = ({
     onRemove(id);
   }, [id, onRemove]);
 
-  const onSelectOption = useCallback((event, data) => {
+  const onSelect = useCallback((event, { value }) => {
     onSelectLevel({
       id,
-      selectedLevel: data.optionValue,
+      selectedLevel: Number(value),
     });
   }, [id, onSelectLevel]);
 
   return (
     <Card orientation="horizontal" size="small">
       <label htmlFor={dropdownId}>Level</label>
-      <Dropdown
+      <Select
         id={dropdownId}
-        onOptionSelect={onSelectOption}
-        selectedOptions={[level]}
+        onChange={onSelect}
         value={level}
       >
         {CHARACTER_LEVELS.map(selectableLevel => (
-          <Option
-            key={selectableLevel}
-            text={selectableLevel}
-            value={selectableLevel}
-          >
-            {selectableLevel}
-          </Option>
+          <option>{selectableLevel}</option>
         ))}
-      </Dropdown>
+      </Select>
       <CardFooter>
         <Button
           appearance="transparent"
