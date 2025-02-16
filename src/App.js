@@ -37,9 +37,8 @@ function App() {
   }, [party]);
 
   const onRemoveCharacter = useCallback((id) => {
-    // If this removes the last character in the party, then generate a new default party.
     if (party.length === 1) {
-      setParty(createParty());
+      setParty([]);
     } else {
       setParty(party.filter(character => id !== character.id));
     }

@@ -20,7 +20,12 @@ export const createParty = (count = 4, level = PRESETS.L1) => {
 };
 
 export const getAveragePartyLevel = (party) => {
+  if (party.length === 0) {
+    return 0;
+  }
+
   const totalPartyLevel = party.reduce((sum, { level }) => sum + level, 0);
+
   return round(totalPartyLevel / party.length, 1);
 };
 
