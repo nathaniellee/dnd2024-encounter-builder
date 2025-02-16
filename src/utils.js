@@ -1,6 +1,10 @@
 import { round } from 'lodash';
 import { v4 as uuidv4 } from 'uuid';
-import { PRESETS } from './constants';
+import {
+  DIFFICULTY,
+  PRESETS,
+  XP_BUDGET,
+} from './constants';
 
 export const createPlayerCharacter = (level = PRESETS.L1) => {
   return {
@@ -28,5 +32,13 @@ export const getAveragePartyLevel = (party) => {
 
   return round(totalPartyLevel / party.length, 1);
 };
+
+export const getBudget = (party, difficulty = DIFFICULTY.LOW) => {
+  const budgetByLevel = XP_BUDGET[difficulty];
+  return party.reduce((sum, { level }) => sum + budgetByLevel[level], 0);
+};
+export const getLowBudget = party => getBudget(party, DIFFICULTY.LOW);
+export const getModerateBudget = party => getBudget(party, DIFFICULTY.MODERATE);
+export const getHighBudget = party => getBudget(party, DIFFICULTY.HIGH);
 
 export const noop = () => {};
