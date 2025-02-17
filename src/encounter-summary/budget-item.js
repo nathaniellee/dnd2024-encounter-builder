@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const BudgetItem = ({ label, value = '' }) => {
+export const BudgetItem = ({ label, value = 0 }) => {
   const styles = useStyles();
   const labelString = `${label}:`;
   const valueString = `${value} XP`;
@@ -28,5 +28,5 @@ export const BudgetItem = ({ label, value = '' }) => {
 
 BudgetItem.propTypes = {
   label: PropTypes.string.isRequired,
-  value: PropTypes.string,
+  value: PropTypes.number,
 };
