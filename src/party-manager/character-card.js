@@ -54,7 +54,7 @@ export const CharacterCard = ({
 
 CharacterCard.propTypes = {
   id: PropTypes.string.isRequired,
-  level: PropTypes.number,
+  level: PropTypes.oneOf(CHARACTER_LEVELS),
   onRemove: PropTypes.func,
   onSelectLevel: PropTypes.func,
 };
