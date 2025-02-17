@@ -1,10 +1,6 @@
 import PropTypes from 'prop-types';
-import {
-  makeStyles,
-} from '@fluentui/react-components';
-import {
-  noop,
-} from '../utils';
+import { makeStyles } from '@fluentui/react-components';
+import { noop } from '../utils';
 import { AddCharacterButton } from './add-character-button';
 import { CharacterCard } from './character-card';
 import { Summary } from './summary';
